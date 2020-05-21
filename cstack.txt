@@ -1,0 +1,9 @@
+Jonathan Wu Lab 10
+
+1.Integers are 4 bytes long or 32 bits
+2.The stack runs from low values to higher ones
+3.The first instruction after c is pushq %rbp
+4.The equivalent of the jr instruction would be the ret at the end of a function
+5.The instruction pushq %rbp starts the location of the stack
+6.The last assembly instruction is ret, which is most likely return
+

@@ -1,0 +1,27 @@
+CS-220 Spring 2018	Lab-05			Due Feb 20, 2018
+
+1. Is arr2d in row major order? How can you show in C code whether
+   arr2d is in row major order or not?
+
+  Arr2d is in row major order, you can tell by using a simple nested for loop with the row first then column. If the elements are printed in order in thatthey are inserted, then it is in row major order.   
+2. Can the values of arrPtrs1d be treated abstractly as if it was
+   a normal two dimensional array? Can you use square bracket 
+   notation to read or write arrPtrs1d? How can you show in C
+   code whether arrPtrs1d can be treated as a 2D array of floats?
+
+   The values can be treated as a normal two dimensional array, everything would just have to use pointers rather than the actual values. You can use square bracket notation to access the different pointers in the array, then you would have to add values to access the specific row values. You can easily show in C code how to treat the array as as 2d array, you just need to keep in mind that it is an array of pointers to floats rather than an array of pointers. 
+3. Is arrPtrs1d in row major order?  How can you show in C code whether
+   arrPtrs1d is in row major order or not? 
+
+   arrPtrs1d is in row major order, to find out you would need a nested for loop and print out the addresses, this is very similar to the way I did it in question one, you just have to use pointer notation.
+4. Can the values of arrPtrsPtrs1d be treated abstractly as if it  
+   was a two dimensional array of pointers to floating point numbers?
+   Can you use square bracket notation to read those pointers? How
+   can you show in C code that arrPtrsPtrs1d can be treated as a 
+   2D array of pointers?
+  Yes this can be treated abstractly as a 2d array. You can also use square brackets to access but you would have to dereference twice and add to that value to get the value in the array that you would need. You can show this in C code as long as you keep in mind that the array is full of pointers that point to pointers that point to an array's row.  
+5. From an abstract point of view, is there a difference between arr2d
+   and arrPtrs1d? From a concrete point of view (i.e. how the array is
+   laid out in memory), is there a difference between arr2d and
+   arrPtrs1d? When might the abstraction "leak"?
+abstractly, there is no difference between arr2d and arrptrs1d. They are both two dimensional arrays, the only difference is how the data is accessed. Concretely, there is a difference because the values that are in arrptrs are memory addresses while the values in arr2d are floating point falues. There could be a leak since allocating memory would be different for the two arrays. For arr2d, you would allocate memory for the normal float values, but for the pointer array, you would have to allocate memory for the pointers, and then allocate memory for the values the pointers are pointing to. 

@@ -1,0 +1,10 @@
+define shutdown2 in sysproc.c
+add it into syscall.h and syscall.c
+in syscall.c make extern int shutdown2 and add into the *syscall function
+add shutdown2 in user.h
+add shutdown2 in usys.S
+
+2.shutdown2 is defined in syscall.h syscall.c
+3.in sysproc.c shutdown2 triggers with the outw commands
+4.the kernel locates shutdown2 in user.h, calls it in usys.h
+5.

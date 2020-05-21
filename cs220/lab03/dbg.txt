@@ -1,0 +1,12 @@
+break main
+run
+checkpoint
+break killPlayer
+continue
+checkpoint
+commands
+where
+up
+list
+restart 1
+end

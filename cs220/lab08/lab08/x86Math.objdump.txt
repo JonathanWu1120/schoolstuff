@@ -1,0 +1,323 @@
+
+x86Math:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000000570 <_init>:
+_init():
+ 570:	48 83 ec 08          	sub    $0x8,%rsp
+ 574:	48 8b 05 65 0a 20 00 	mov    0x200a65(%rip),%rax        # 200fe0 <__gmon_start__>
+ 57b:	48 85 c0             	test   %rax,%rax
+ 57e:	74 02                	je     582 <_init+0x12>
+ 580:	ff d0                	callq  *%rax
+ 582:	48 83 c4 08          	add    $0x8,%rsp
+ 586:	c3                   	retq   
+
+Disassembly of section .plt:
+
+0000000000000590 <.plt>:
+ 590:	ff 35 72 0a 20 00    	pushq  0x200a72(%rip)        # 201008 <_GLOBAL_OFFSET_TABLE_+0x8>
+ 596:	ff 25 74 0a 20 00    	jmpq   *0x200a74(%rip)        # 201010 <_GLOBAL_OFFSET_TABLE_+0x10>
+ 59c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+00000000000005a0 <printf@plt>:
+ 5a0:	ff 25 72 0a 20 00    	jmpq   *0x200a72(%rip)        # 201018 <printf@GLIBC_2.2.5>
+ 5a6:	68 00 00 00 00       	pushq  $0x0
+ 5ab:	e9 e0 ff ff ff       	jmpq   590 <.plt>
+
+00000000000005b0 <strtol@plt>:
+ 5b0:	ff 25 6a 0a 20 00    	jmpq   *0x200a6a(%rip)        # 201020 <strtol@GLIBC_2.2.5>
+ 5b6:	68 01 00 00 00       	pushq  $0x1
+ 5bb:	e9 d0 ff ff ff       	jmpq   590 <.plt>
+
+Disassembly of section .plt.got:
+
+00000000000005c0 <.plt.got>:
+ 5c0:	ff 25 32 0a 20 00    	jmpq   *0x200a32(%rip)        # 200ff8 <__cxa_finalize@GLIBC_2.2.5>
+ 5c6:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .text:
+
+00000000000005d0 <_start>:
+_start():
+ 5d0:	31 ed                	xor    %ebp,%ebp
+ 5d2:	49 89 d1             	mov    %rdx,%r9
+ 5d5:	5e                   	pop    %rsi
+ 5d6:	48 89 e2             	mov    %rsp,%rdx
+ 5d9:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+ 5dd:	50                   	push   %rax
+ 5de:	54                   	push   %rsp
+ 5df:	4c 8d 05 1a 02 00 00 	lea    0x21a(%rip),%r8        # 800 <__libc_csu_fini>
+ 5e6:	48 8d 0d a3 01 00 00 	lea    0x1a3(%rip),%rcx        # 790 <__libc_csu_init>
+ 5ed:	48 8d 3d 0c 01 00 00 	lea    0x10c(%rip),%rdi        # 700 <main>
+ 5f4:	ff 15 de 09 20 00    	callq  *0x2009de(%rip)        # 200fd8 <__libc_start_main@GLIBC_2.2.5>
+ 5fa:	f4                   	hlt    
+ 5fb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000000600 <deregister_tm_clones>:
+deregister_tm_clones():
+ 600:	48 8d 3d 31 0a 20 00 	lea    0x200a31(%rip),%rdi        # 201038 <__TMC_END__>
+ 607:	48 8d 05 31 0a 20 00 	lea    0x200a31(%rip),%rax        # 20103f <__TMC_END__+0x7>
+ 60e:	55                   	push   %rbp
+ 60f:	48 29 f8             	sub    %rdi,%rax
+ 612:	48 89 e5             	mov    %rsp,%rbp
+ 615:	48 83 f8 0e          	cmp    $0xe,%rax
+ 619:	76 15                	jbe    630 <deregister_tm_clones+0x30>
+ 61b:	48 8b 05 ae 09 20 00 	mov    0x2009ae(%rip),%rax        # 200fd0 <_ITM_deregisterTMCloneTable>
+ 622:	48 85 c0             	test   %rax,%rax
+ 625:	74 09                	je     630 <deregister_tm_clones+0x30>
+ 627:	5d                   	pop    %rbp
+ 628:	ff e0                	jmpq   *%rax
+ 62a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ 630:	5d                   	pop    %rbp
+ 631:	c3                   	retq   
+ 632:	0f 1f 40 00          	nopl   0x0(%rax)
+ 636:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+ 63d:	00 00 00 
+
+0000000000000640 <register_tm_clones>:
+register_tm_clones():
+ 640:	48 8d 3d f1 09 20 00 	lea    0x2009f1(%rip),%rdi        # 201038 <__TMC_END__>
+ 647:	48 8d 35 ea 09 20 00 	lea    0x2009ea(%rip),%rsi        # 201038 <__TMC_END__>
+ 64e:	55                   	push   %rbp
+ 64f:	48 29 fe             	sub    %rdi,%rsi
+ 652:	48 89 e5             	mov    %rsp,%rbp
+ 655:	48 c1 fe 03          	sar    $0x3,%rsi
+ 659:	48 89 f0             	mov    %rsi,%rax
+ 65c:	48 c1 e8 3f          	shr    $0x3f,%rax
+ 660:	48 01 c6             	add    %rax,%rsi
+ 663:	48 d1 fe             	sar    %rsi
+ 666:	74 18                	je     680 <register_tm_clones+0x40>
+ 668:	48 8b 05 81 09 20 00 	mov    0x200981(%rip),%rax        # 200ff0 <_ITM_registerTMCloneTable>
+ 66f:	48 85 c0             	test   %rax,%rax
+ 672:	74 0c                	je     680 <register_tm_clones+0x40>
+ 674:	5d                   	pop    %rbp
+ 675:	ff e0                	jmpq   *%rax
+ 677:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ 67e:	00 00 
+ 680:	5d                   	pop    %rbp
+ 681:	c3                   	retq   
+ 682:	0f 1f 40 00          	nopl   0x0(%rax)
+ 686:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+ 68d:	00 00 00 
+
+0000000000000690 <__do_global_dtors_aux>:
+__do_global_dtors_aux():
+ 690:	80 3d a1 09 20 00 00 	cmpb   $0x0,0x2009a1(%rip)        # 201038 <__TMC_END__>
+ 697:	75 27                	jne    6c0 <__do_global_dtors_aux+0x30>
+ 699:	48 83 3d 57 09 20 00 	cmpq   $0x0,0x200957(%rip)        # 200ff8 <__cxa_finalize@GLIBC_2.2.5>
+ 6a0:	00 
+ 6a1:	55                   	push   %rbp
+ 6a2:	48 89 e5             	mov    %rsp,%rbp
+ 6a5:	74 0c                	je     6b3 <__do_global_dtors_aux+0x23>
+ 6a7:	48 8b 3d 82 09 20 00 	mov    0x200982(%rip),%rdi        # 201030 <__dso_handle>
+ 6ae:	e8 0d ff ff ff       	callq  5c0 <.plt.got>
+ 6b3:	e8 48 ff ff ff       	callq  600 <deregister_tm_clones>
+ 6b8:	5d                   	pop    %rbp
+ 6b9:	c6 05 78 09 20 00 01 	movb   $0x1,0x200978(%rip)        # 201038 <__TMC_END__>
+ 6c0:	f3 c3                	repz retq 
+ 6c2:	0f 1f 40 00          	nopl   0x0(%rax)
+ 6c6:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+ 6cd:	00 00 00 
+
+00000000000006d0 <frame_dummy>:
+frame_dummy():
+ 6d0:	48 8d 3d 11 07 20 00 	lea    0x200711(%rip),%rdi        # 200de8 <__JCR_END__>
+ 6d7:	48 83 3f 00          	cmpq   $0x0,(%rdi)
+ 6db:	75 0b                	jne    6e8 <frame_dummy+0x18>
+ 6dd:	e9 5e ff ff ff       	jmpq   640 <register_tm_clones>
+ 6e2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ 6e8:	48 8b 05 f9 08 20 00 	mov    0x2008f9(%rip),%rax        # 200fe8 <_Jv_RegisterClasses>
+ 6ef:	48 85 c0             	test   %rax,%rax
+ 6f2:	74 e9                	je     6dd <frame_dummy+0xd>
+ 6f4:	55                   	push   %rbp
+ 6f5:	48 89 e5             	mov    %rsp,%rbp
+ 6f8:	ff d0                	callq  *%rax
+ 6fa:	5d                   	pop    %rbp
+ 6fb:	e9 40 ff ff ff       	jmpq   640 <register_tm_clones>
+
+0000000000000700 <main>:
+main():
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:9
+int add(int x, int y);
+int mult(int x, int y);
+int subtract(int x, int y);
+int divide(int x, int y);
+
+int main(int argc, char **argv) {
+ 700:	48 83 ec 08          	sub    $0x8,%rsp
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:10
+	if (argc < 2) {
+ 704:	83 ff 01             	cmp    $0x1,%edi
+ 707:	7e 4e                	jle    757 <main+0x57>
+atoi():
+/usr/include/stdlib.h:241
+#ifdef __USE_EXTERN_INLINES
+__BEGIN_NAMESPACE_STD
+__extern_inline int
+__NTH (atoi (const char *__nptr))
+{
+  return (int) strtol (__nptr, (char **) NULL, 10);
+ 709:	48 8b 7e 08          	mov    0x8(%rsi),%rdi
+ 70d:	ba 0a 00 00 00       	mov    $0xa,%edx
+ 712:	be 00 00 00 00       	mov    $0x0,%esi
+ 717:	e8 94 fe ff ff       	callq  5b0 <strtol@plt>
+ 71c:	48 89 c6             	mov    %rax,%rsi
+mult():
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:49
+	}
+
+	int mult(int x, int y) {
+		int op1=x;
+		int op2=y;
+		int res=op1*op2;
+ 71f:	89 c7                	mov    %eax,%edi
+ 721:	0f af f8             	imul   %eax,%edi
+ 724:	8d 04 85 00 00 00 00 	lea    0x0(,%rax,4),%eax
+subtract():
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:42
+		int res=op1-op2;
+ 72b:	29 c7                	sub    %eax,%edi
+add():
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:35
+		int res=op1+op2;
+ 72d:	83 c7 04             	add    $0x4,%edi
+subtract():
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:42
+		int res=op1-op2;
+ 730:	8d 4e fe             	lea    -0x2(%rsi),%ecx
+divide():
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:56
+	}
+
+	int divide(int x, int y) {
+		int op1=x;
+		int op2=y;
+		int res=op1/op2;
+ 733:	89 f8                	mov    %edi,%eax
+ 735:	99                   	cltd   
+ 736:	f7 f9                	idiv   %ecx
+ 738:	89 c1                	mov    %eax,%ecx
+main():
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:21
+	printf("x=%d, x squared - 4x + 4 =%d divided by x-2=%d\n",x,ans,check);
+ 73a:	89 fa                	mov    %edi,%edx
+ 73c:	48 8d 3d ed 00 00 00 	lea    0xed(%rip),%rdi        # 830 <_IO_stdin_used+0x20>
+ 743:	b8 00 00 00 00       	mov    $0x0,%eax
+ 748:	e8 53 fe ff ff       	callq  5a0 <printf@plt>
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:22
+	return 0;
+ 74d:	b8 00 00 00 00       	mov    $0x0,%eax
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:23
+}
+ 752:	48 83 c4 08          	add    $0x8,%rsp
+ 756:	c3                   	retq   
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:11
+		printf("Invoke as %s <number>\n",argv[0]);
+ 757:	48 8b 36             	mov    (%rsi),%rsi
+ 75a:	48 8d 3d b3 00 00 00 	lea    0xb3(%rip),%rdi        # 814 <_IO_stdin_used+0x4>
+ 761:	b8 00 00 00 00       	mov    $0x0,%eax
+ 766:	e8 35 fe ff ff       	callq  5a0 <printf@plt>
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:12
+		return 1;
+ 76b:	b8 01 00 00 00       	mov    $0x1,%eax
+ 770:	eb e0                	jmp    752 <main+0x52>
+
+0000000000000772 <add>:
+add():
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:35
+		int res=op1+op2;
+ 772:	8d 04 37             	lea    (%rdi,%rsi,1),%eax
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:37
+	}
+ 775:	c3                   	retq   
+
+0000000000000776 <subtract>:
+subtract():
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:42
+		int res=op1-op2;
+ 776:	89 f8                	mov    %edi,%eax
+ 778:	29 f0                	sub    %esi,%eax
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:44
+	}
+ 77a:	c3                   	retq   
+
+000000000000077b <mult>:
+mult():
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:49
+		int res=op1*op2;
+ 77b:	89 f8                	mov    %edi,%eax
+ 77d:	0f af c6             	imul   %esi,%eax
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:51
+	}
+ 780:	c3                   	retq   
+
+0000000000000781 <divide>:
+divide():
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:53
+	int divide(int x, int y) {
+ 781:	89 f8                	mov    %edi,%eax
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:56
+		int res=op1/op2;
+ 783:	99                   	cltd   
+ 784:	f7 fe                	idiv   %esi
+/import/linux/home1/jwu166/cs220/lab08/lab08/x86Math.c:58
+		return res;
+	}
+ 786:	c3                   	retq   
+ 787:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ 78e:	00 00 
+
+0000000000000790 <__libc_csu_init>:
+__libc_csu_init():
+ 790:	41 57                	push   %r15
+ 792:	41 56                	push   %r14
+ 794:	41 89 ff             	mov    %edi,%r15d
+ 797:	41 55                	push   %r13
+ 799:	41 54                	push   %r12
+ 79b:	4c 8d 25 36 06 20 00 	lea    0x200636(%rip),%r12        # 200dd8 <__frame_dummy_init_array_entry>
+ 7a2:	55                   	push   %rbp
+ 7a3:	48 8d 2d 36 06 20 00 	lea    0x200636(%rip),%rbp        # 200de0 <__init_array_end>
+ 7aa:	53                   	push   %rbx
+ 7ab:	49 89 f6             	mov    %rsi,%r14
+ 7ae:	49 89 d5             	mov    %rdx,%r13
+ 7b1:	4c 29 e5             	sub    %r12,%rbp
+ 7b4:	48 83 ec 08          	sub    $0x8,%rsp
+ 7b8:	48 c1 fd 03          	sar    $0x3,%rbp
+ 7bc:	e8 af fd ff ff       	callq  570 <_init>
+ 7c1:	48 85 ed             	test   %rbp,%rbp
+ 7c4:	74 20                	je     7e6 <__libc_csu_init+0x56>
+ 7c6:	31 db                	xor    %ebx,%ebx
+ 7c8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ 7cf:	00 
+ 7d0:	4c 89 ea             	mov    %r13,%rdx
+ 7d3:	4c 89 f6             	mov    %r14,%rsi
+ 7d6:	44 89 ff             	mov    %r15d,%edi
+ 7d9:	41 ff 14 dc          	callq  *(%r12,%rbx,8)
+ 7dd:	48 83 c3 01          	add    $0x1,%rbx
+ 7e1:	48 39 dd             	cmp    %rbx,%rbp
+ 7e4:	75 ea                	jne    7d0 <__libc_csu_init+0x40>
+ 7e6:	48 83 c4 08          	add    $0x8,%rsp
+ 7ea:	5b                   	pop    %rbx
+ 7eb:	5d                   	pop    %rbp
+ 7ec:	41 5c                	pop    %r12
+ 7ee:	41 5d                	pop    %r13
+ 7f0:	41 5e                	pop    %r14
+ 7f2:	41 5f                	pop    %r15
+ 7f4:	c3                   	retq   
+ 7f5:	90                   	nop
+ 7f6:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+ 7fd:	00 00 00 
+
+0000000000000800 <__libc_csu_fini>:
+__libc_csu_fini():
+ 800:	f3 c3                	repz retq 
+
+Disassembly of section .fini:
+
+0000000000000804 <_fini>:
+_fini():
+ 804:	48 83 ec 08          	sub    $0x8,%rsp
+ 808:	48 83 c4 08          	add    $0x8,%rsp
+ 80c:	c3                   	retq   

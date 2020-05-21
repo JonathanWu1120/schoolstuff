@@ -1,0 +1,45 @@
+
+============= Starting tier 1 =============
+-------------------- Winners Bracket ----------------------
+Playing rock against paper ...
+  rock score is 0, paper score is 50 ...paper Won!!!
+Playing jwu166 against random ...
+  jwu166 score is 39, random score is 20 ...jwu166 Won!!!!
+  Player scissors got a bye into the next tier
+============= Finished tier 1 =============
+
+============= Starting tier 2 =============
+-------------------- Winners Bracket ----------------------
+Playing scissors against jwu166 ...
+  scissors score is 4, jwu166 score is 46 ...jwu166 Won!!!
+  Player paper got a bye into the next tier
+--------------------- Losers Bracket ------------------------------
+Playing random against rock ...
+  random score is 30, rock score is 27 ...random Won!!!!
+Eliminating rock after two losses
+============= Finished tier 2 =============
+
+============= Starting tier 3 =============
+-------------------- Winners Bracket ----------------------
+Playing jwu166 against paper ...
+  jwu166 score is 48, paper score is 2 ...jwu166 Won!!!!
+--------------------- Losers Bracket ------------------------------
+Playing scissors against random ...
+  scissors score is 26, random score is 26 ...It's a tie!
+Arbitrarilly eliminating random to avoid endless loops
+============= Finished tier 3 =============
+
+============= Starting tier 4 =============
+-------------------- Winners Bracket ----------------------
+  Player jwu166 got a bye into the next tier
+--------------------- Losers Bracket ------------------------------
+Playing scissors against paper ...
+  scissors score is 50, paper score is 0 ...scissors Won!!!!
+Eliminating paper after two losses
+============= Finished tier 4 =============
+
+========== Championship Match! ==============
+Playing jwu166 against scissors ...
+  jwu166 score is 47, scissors score is 3 ...jwu166 Won!!!!
+
+Winner and unbeaten champion: jwu166!!!

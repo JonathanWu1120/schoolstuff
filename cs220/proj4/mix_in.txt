@@ -1,0 +1,2 @@
+# The following is an example input file for the mix program
+S B is my section 

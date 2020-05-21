@@ -1,0 +1,7 @@
+Blue moon of Kentucky keep on shining.
+1 2 4 7 11 16
+5 627
+number less than 14
+func4 0x14 0 input 1
+0x18 value 0
+0x1c value 14

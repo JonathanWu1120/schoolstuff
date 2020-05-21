@@ -1,0 +1,72 @@
+Answer questions 1-4 with the optimization set at its original value, "OPT=O0".
+
+1. Scan through the x86Math.s and x86Math.objdump.txt files side by side.
+	A. Do these two files contain similar sets of x86 instructions for the 
+	   "add" function?
+	   Yes
+	B. Do both files refer back to the original C code from which they were
+	   derived?
+	   Yes they both have lines of the original code
+	C. Does the gdb disassembly match the x86 instructions in both the .s  
+	   and objdump files?
+	   yes
+	D. Which format of all three do you find easier and why? 
+	the gdb version or the objdump.txt are easier to read and follow along. The .s file has some extra lines that are not specific so the logic is slightly harder to follow.	
+
+2. How many assembler instructions are required f
+	A. the "add" function :	13 or 15	
+	B. the "subtract" function: 12 or 14
+	Was not sure if pop and retq were part of the function or not
+3. How many bytes (in hex) are needed for the x86 version of the x86Math 
+   program? (You can find this by scrolling to the bottom of file x86Math.s 
+   and finding the offset associated with the last instruction in the file.)
+   
+x0172
+   
+	
+4. Find the x86 add instruction that adds op1+op2 in the add function.
+	A. What line number is that instruction at in the x86Math.s file?
+	218
+	B. What hexadecimal address contains that instruction from the 
+	   x86Math.objdump.txt file? 
+	7eb
+5. In gdb, just before you execute the instruction at 0x00005555555547eb for 
+   the first time:
+	A. What is the value in the "edx" register? 
+	16
+	B. What is the value in the "eax" register?
+	0
+	C. After you execute the instruction, what is the value in the "eax" 
+	   register?
+	4
+Answer questions 6-8 with the optimization variable set to "OPT=O1" to do some 
+optimization
+
+6. Is it still possible to map directly from C code to x86 assembler 
+   instructions? What has happened?
+	yes but the amount of instructions have decreased from the optimization
+	
+7. In gdb, what x86 instruction is about to get executed when you reach the 
+   first breakpoint in the "add" function?
+	sub $0x8, %rsp
+	 
+8. 	A. How many bytes are needed for this x86 version of the x86Math 
+	   program? 
+	   x0086
+	B. How does this compare to the length of the previous version? 
+	this is half of the previous version
+	C. Why is there a difference?
+	 the code is optimized to use less x86 commands
+Answer questions 9-10 with the optimization value set to "OPT=O0 -DSIMPLE"
+
+9. 	A. How many bytes are needed for this x86 version of the x86Math 
+	   program?
+	   x012a
+	B. How does this compare to previous versions?
+	this is smaller than the first version with -O0 but bigger then -O1
+	C. Does the gcc optimizer do a better job than a human in this case?
+the optimizer does a better job than the human in this case
+10. Compare the x86 instructions for the add function with the x86 
+    instructions for the add function in the first part of the lab. What is 
+    the main difference?
+the main difference is that there are less mov instructions so the number of instructions is smaller than the first part of the lab
